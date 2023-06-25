@@ -7,8 +7,10 @@ public class TestServiceTwo {
 
     private final TestServiceOne serviceOne;
 
+
     public TestServiceTwo(TestServiceOne serviceOne) {
         this.serviceOne = serviceOne;
+
     }
 
     @Autowired
@@ -17,8 +19,8 @@ public class TestServiceTwo {
     }
 
     @PostConstruct
-    private void onInit(int age){
-
+    private void onInit(){
+        System.out.println("testing post for service 2 ");
     }
 
     @PreDestroy
