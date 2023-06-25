@@ -1,15 +1,15 @@
 package org.ossovita;
 
+import org.ossovita.ioc.annotations.Service;
 import org.ossovita.ioc.config.MagicConfiguration;
 import org.ossovita.ioc.enums.DirectoryType;
 import org.ossovita.ioc.models.Directory;
-import org.ossovita.ioc.services.ClassLocator;
-import org.ossovita.ioc.services.ClassLocatorForDirectory;
-import org.ossovita.ioc.services.ClassLocatorForJarFile;
-import org.ossovita.ioc.services.DirectoryResolverImpl;
+import org.ossovita.ioc.models.ServiceDetails;
+import org.ossovita.ioc.services.*;
+
 import java.util.Set;
 
-
+@Service
 public class MagicInjector {
 
     public static void main(String[] args) {
@@ -22,7 +22,7 @@ public class MagicInjector {
     }
 
     public static void run(Class<?> startupClass, MagicConfiguration configuration) {
-        System.out.println("Dir is ");
+        ServicesScanningService scanningService = new ServiceScanningServiceImpl(configuration.annotations());
         Directory directory = new DirectoryResolverImpl().resolveDirectory(startupClass);
 
         ClassLocator classLocator = new ClassLocatorForDirectory();
@@ -30,7 +30,10 @@ public class MagicInjector {
             classLocator = new ClassLocatorForJarFile();
         }
 
-        Set<Class<?>> classes = classLocator.locateClasses(directory.getDirectory());
-        System.out.println(classes);
+        Set<Class<?>> locatedClasses = classLocator.locateClasses(directory.getDirectory());
+        Set<ServiceDetails<?>> serviceDetails = scanningService.mapServices(locatedClasses);
+        System.out.println(serviceDetails.toString());
+
+
     }
 }
