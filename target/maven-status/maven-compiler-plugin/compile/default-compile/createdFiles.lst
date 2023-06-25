@@ -1,6 +1,0 @@
-org\ossovita\ioc\enums\DirectoryType.class
-org\ossovita\ioc\models\Directory.class
-org\ossovita\ioc\services\DirectoryResolver.class
-org\ossovita\ioc\config\MagicConfiguration.class
-org\ossovita\ioc\services\DirectoryResolverImpl.class
-org\ossovita\MagicInjector.class

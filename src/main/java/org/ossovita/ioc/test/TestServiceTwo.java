@@ -20,7 +20,7 @@ public class TestServiceTwo {
 
     @PostConstruct
     private void onInit(){
-        System.out.println("testing post for service 2 ");
+        System.out.println("creating service 2");
     }
 
     @PreDestroy

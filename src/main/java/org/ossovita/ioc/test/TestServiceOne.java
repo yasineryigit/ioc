@@ -10,6 +10,11 @@ public class TestServiceOne {
     public TestServiceOne() {
     }
 
+    @PostConstruct
+    public void onInit(){
+        System.out.println("creating service one");
+    }
+
     @Bean
     public ModelMapper modelMapper(){
         return new ModelMapper();

@@ -1,0 +1,7 @@
+
+[
+java:S2095"EUse try-with-resources or close this "JarFile" in a "finally" clause.(Íï“ƒ
+c
+java:S5361#"HReplace this call to "replaceAll()" by a call to the "replace()" method.(ää±ìşÿÿÿÿ
+c
+java:S5361""HReplace this call to "replaceAll()" by a call to the "replace()" method.(¯Êáûÿÿÿÿ
